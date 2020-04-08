@@ -18,8 +18,11 @@ func (d D) Execute() error {
 
 	switch args[0] {
 	case "rmall":
-		fmt.Println("removing docker containers")
+		fmt.Println("removing all docker containers")
 		return rmall{Args: args}.Run()
+	case "rmi":
+		fmt.Println("removing all docker images")
+		return rmi{Args: args}.Run()
 	default:
 		return def{Args: args}.Run()
 	}
