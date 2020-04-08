@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/vikramyadav1/mod/cli/commands"
+	"github.com/vikramyadav1/mod/cli/commands/d"
 )
 
 // Start : Start the cli
@@ -19,9 +20,6 @@ func Start() {
 }
 
 func runSubcommand() error {
-	// dfCommand := flag.NewFlagSet("delete-file", flag.ExitOnError)
-	// filePattern := dfCommand.String("p", "", "file pattern")
-
 	if len(os.Args) < 2 {
 		fmt.Println("Missing Command")
 		os.Exit(1)
@@ -29,7 +27,7 @@ func runSubcommand() error {
 
 	switch os.Args[1] {
 	case "d":
-		return executeCommand(commands.D{ImageName: os.Args[2]})
+		return executeCommand(d.D{})
 	default:
 		return fmt.Errorf("Error: Unrecognized command. Run with -h for usage")
 	}
